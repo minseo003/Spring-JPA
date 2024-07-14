@@ -11,6 +11,12 @@ import java.io.IOException;
 @WebServlet(name = "requestParamServlet",urlPatterns = "/request-param")
 public class requestParamServlet extends HttpServlet {
 
+    /**
+     * request.getParameter()는 하나의 파라미터 이름에 대해서 단 하나의 값만 있을때 사용해야한다
+     * 만약 중복일때 request.getParameter()을 사용하면 첫번째값을 반환한다
+     * GET URL parameter방법으로 요청하는경우, 메세지바디에 담을 데이터가 없으므로 메세지바디의형식인 content-type을 지정할 필요가 없다
+     * 반면 POST HTML Form parameter방법으로 요청하는경우 conten-type:application/x-www-form-urlencoded
+     */
     @Override
     protected void service(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
